@@ -27,7 +27,7 @@ def parse_find_colophon(line: str) -> bool:
     Definition of colophon:
         .SH "跋" or .SH 跋
     """
-    if line == '.SH "跋"' or line == '.SH 跋':
+    if '.SH "跋"\n' == line or '.SH 跋\n' == line:
         return True
     else:
         return False
@@ -52,12 +52,20 @@ if __name__ == "__main__":
         pass
     print('.PP')
     print('本页面中文版由中文 man 手册页计划提供。')
-    if "translator" in t_info.keys():
-        print('\n翻译人员：' + t_info["translator"])
-    if "orig-date" in t_info.keys():
-        print('\n获取日期：' + t_info["orig-date"])
-    if "date" in t_info.keys():
-        print('\n翻译日期：' + t_info["date"])
+
+    if len(t_info.keys()) > 0:
+        "we need another paragraph"
+        print('.PP')
+        if "translator" in t_info.keys():
+            print('\\fI翻译人员\\fR：' + t_info["translator"], end="")
+            print('.br')
+        if "orig-date" in t_info.keys():
+            print('\\fI获取日期\\fR：' + t_info["orig-date"], end="")
+            print('.br')
+        if "date" in t_info.keys():
+            print('\\fI翻译日期\\fR：' + t_info["date"], end="")
+            print('.br')
+
     print('.PP')
     print("中文 man 手册页计划：\\fB" +
           "https://github.com/man-pages-zh/manpages-zh" +
