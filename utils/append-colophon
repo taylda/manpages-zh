@@ -1,0 +1,64 @@
+#!/usr/bin/env python3
+
+"""append-colophon -- automatically append colophon(“跋”) when making
+
+* Require UTF-8 input and output.
+"""
+
+import sys
+import fileinput
+
+def parse_translator_info(line: str, t_info: dict) -> bool:
+    """Try-parse to see if we met the translator information.
+
+    A "good" translator information should be like:
+        .\" manpages-zh translator: Foo Bar <email>
+        .\" manpages-zh date: 2016-11-22
+        .\" manpages-zh orig-date: 2012-03-22
+    """
+    if line[:16] == ".\\\" manpages-zh ":
+        t_info[line[16:].split(": ")[0]] = line[16:].split(": ")[1]
+        return True
+    return False
+
+def parse_find_colophon(line: str) -> bool:
+    """Try-parse to see if this is a colophon.
+
+    Definition of colophon:
+        .SH "跋" or .SH 跋
+    """
+    if line == '.SH "跋"' or line == '.SH 跋':
+        return True
+    else:
+        return False
+    pass
+
+if __name__ == "__main__":
+    "some flags here"
+    flag_met_colophon = False
+    t_info = {} # translator information
+
+    for line in fileinput.input():
+        if parse_translator_info(line, t_info):
+            continue
+        if parse_find_colophon(line):
+            flag_met_colophon = True
+        print(line, end="")
+
+    "At the end of the output, append our colophon"
+    if not flag_met_colophon:
+        print('.SH "跋"')
+    else:
+        pass
+    print('.PP')
+    print('本页面中文版由中文 man 手册页计划提供。')
+    if "translator" in t_info.keys():
+        print('\n翻译人员：' + t_info["translator"])
+    if "orig-date" in t_info.keys():
+        print('\n获取日期：' + t_info["orig-date"])
+    if "date" in t_info.keys():
+        print('\n翻译日期：' + t_info["date"])
+    print('.PP')
+    print("中文 man 手册页计划：\\fB" +
+          "https://github.com/man-pages-zh/manpages-zh" +
+          "\\fR")
