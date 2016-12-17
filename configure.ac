@@ -2,14 +2,14 @@
 # Process this file with autoconf to produce a configure script.
 
 AC_PREREQ([2.61])
-AC_INIT([manpages-zh],[1.5.4.1],[https://github.com/man-pages-zh/manpages-zh/issues])
+AC_INIT([manpages-zh],[1.5.4.90],[https://github.com/man-pages-zh/manpages-zh/issues])
 AC_CONFIG_SRCDIR([src/man1/basename.1])
 AM_INIT_AUTOMAKE([subdir-objects])
 AM_MAINTAINER_MODE
 
 AC_ARG_ENABLE([utf8],
               [AS_HELP_STRING([--disable-utf8],
-                              [don't generate manpages in utf8 encoding,
+                              [don not generate manpages in utf8 encoding,
                                use gbk and big5 encoding])],
               [case "${enableval}" in
                        yes) utf8=true ;;
@@ -18,6 +18,27 @@ AC_ARG_ENABLE([utf8],
                 esac],
               [utf8=true])
 AM_CONDITIONAL([UTF8], [test x$utf8 = xtrue])
+
+AC_ARG_ENABLE([append_colophon],
+              [AS_HELP_STRING([--disable-append-colophon],
+                              [do not append translation information
+                               to output man pages])],
+              [case "${enableval}" in
+                    yes) append_colophon=true  ;;
+                    no)  append_colophon=false ;;
+                    *) AC_MSG_ERROR([bad value ${enableval} for --disable-append-colophon]) ;;
+               esac],
+              [append_colophon=true])
+AM_CONDITIONAL([APPEND_COLOPHON], [test "x${append_colophon}" = "xtrue"])
+
+# append-colophon require python3 to work properly
+AS_IF([test "x${append_colophon}" = "xtrue"],
+      [AC_CHECK_PROG([HAVE_PYTHON3], [python3], [yes], [no])
+       AS_IF([test "x${HAVE_PYTHON3}" = "xno"],
+             [AC_MSG_ERROR([you need to install python3 to build the package.])],
+             [])
+       ],
+      [])
 
 AC_ARG_ENABLE([zhtw],
               [AS_HELP_STRING([--disable-zhtw],
@@ -98,7 +119,8 @@ AC_OUTPUT
 echo
 echo "manpages-zh configure summary"
 echo "============================="
-echo "UTF-8 : $utf8"
-echo "zh_CN : $zhcn"
-echo "zh_TW : $zhtw"
+echo "UTF-8   : $utf8"
+echo "zh_CN   : $zhcn"
+echo "zh_TW   : $zhtw"
+echo "COLOPHON: $append_colophon"
 echo

@@ -2,14 +2,20 @@ include $(srcdir)/../manpages
 
 mandir = @mandir@/zh_TW
 
+if APPEND_COLOPHON
+APPEND_COLOPHON = ${top_srcdir}/utils/append-colophon
+else !APPEND_COLOPHON
+APPEND_COLOPHON = tee
+endif
+
 man_MANS = $(MANPAGES)
 
 if UTF8
 %.7: $(srcdir)/../%.7
-	iconv -f utf8 -t gbk $< | autob5 | $(top_srcdir)/utils/totw.pl | iconv -f big5 -t utf8 > $@
+	$(APPEND_COLOPHON) < $< | iconv -f utf8 -t gbk | autob5 | $(top_srcdir)/utils/totw.pl | iconv -f big5 -t utf8 > $@
 else
 %.7: $(srcdir)/../%.7
-	iconv -f utf8 -t gbk $< | autob5 | $(top_srcdir)/utils/totw.pl > $@
+	$(APPEND_COLOPHON) < $< | iconv -f utf8 -t gbk $< | autob5 | $(top_srcdir)/utils/totw.pl > $@
 endif
 
 clean-local:
