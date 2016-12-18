@@ -1,9 +1,7 @@
-.TH VIM 1 "1998 December 28"
-
-.SH NAME
+.TH VIM 1 "2006-04-11"
+.SH "名称"
 vim \- Vi IMproved, 一个程序员的文本编辑器
-
-.SH "总览 (SYNOPSIS)"
+.SH "概述"
 .br
 .B vim
 [options] [file ..]
@@ -24,52 +22,54 @@ vim \- Vi IMproved, 一个程序员的文本编辑器
 .br
 .B gvim
 .B gview
+.B evim
+.B eview
 .br
 .B rvim
 .B rview
 .B rgvim
 .B rgview
-
-.SH "描述 (DESCRIPTION)"
+.SH "描述"
 .B Vim
-是 一个 同 Vi 向上兼容的 文本 编辑器, 可以 用来 编辑
-任何 ASCII 文本, 特别 适合 用来 编辑 程序.
+是一个同 Vi 向上兼容的文本编辑器。
+它可以用来编辑任何纯文本。
+它特别适合用来编辑程序。
 .PP
-它对 Vi 作了 许多 增强: 多层撤销, 多窗口, 多缓冲区(buffer),
-高亮度 语法显示, 命令行编辑, 文件名匹配, 在线帮助, 可视选定,
-等等. 用
-":help vi_diff.txt" 看
+它对 Vi 作了许多增强：多层撤销、多窗口、多缓冲区(buffer)、
+高亮语法显示、命令行编辑、文件名补全、在线帮助、可视选择等等。
+请用 ":help vi_diff.txt" 查看
 .B Vim
-和 Vi 的差别 的 摘要.
+和 Vi 之间差别的摘要。
 .PP
 在运行
 .B Vim
-的时候 可以用 ":help" 命令 获得 很多 帮助.
-参考 下面的 在线帮助 一节.
+的时候，可以用 ":help" 命令获得很多帮助信息。
+请参考下面的“在线帮助”一节。
 .PP
-一般 可用
+通常情况下，
+.B vim
+使用直接把文件名作为参数的方法来编辑文件：
 .PP
-	vim file
+	vim 文件名
 .PP
-命令 打开
+更通用地来说，
 .B Vim
-来 编辑 一个 文件. 概括的说, 可以用
+使用下述方式从命令行启动：
 .PP
-	vim [options] [filelist]
+	vim [选项] [文件列表]
 .PP
-命令 来运行
-.B Vim .
-如果 没有 文件名, 编辑器 就会 打开 一个 空的 缓冲区.
-否则 就会用 下面 四个中的一个 来选择 要编辑的 文件.
+如果没有给定文件，则编辑器会打开一个空的缓冲区。
+否则就会用下面四个中的一个方式来选择要编辑的文件。
 .TP 12
-file ..
-文件名列表. 第一个 会 作为 当前 文件 读入 缓冲区, 光标 会
-停在 缓冲区的 第一行. 你 可以用 ":next" 命令 转到 其它的 文件.
-如果 要编辑 一个以 "-" 开头的 文件. 在文件 列表 前面 加上 "--".
+文件 ..
+文件名列表。
+第一个会作为当前文件读入缓冲区。
+光标会停在缓冲区的第一行。
+您可以使用 ":next" 命令转到其它的文件。
+如果要编辑一个以 "-" 开头的文件，请在文件列表前面加上 "\-\-"。
 .TP
--
-从 标准输入 读取 被编辑的 文件. 从 标准 错误输出 (应该 是个
-终端) 读入 命令.
+\-
+从标准输入读取要编辑的文件。命令从标准错误读取，此时标准错误应当是一个 TTY。
 .TP
 -t {tag}
 被 编辑的 文件 和 光标的 初始位置 由 标记 (tag) 决定， 标记
@@ -148,7 +148,7 @@ rvim rview rgvim rgview
 就像 运行 "ex" 一样。
 .TP
 -f
-前台 运行。 对于 GUI 版本， 
+前台 运行。 对于 GUI 版本，
 .B Vim
 不会 同运行它的 shell 分离。
 在 Amiga 中，
@@ -182,7 +182,7 @@ rvim rview rgvim rgview
 如果
 .B Vim
 编译时 加入了 对 从右到左 书写的 文件 RIGHTLEFT 以及 Hebrew 键盘映射
-的支持， 
+的支持，
 .B Vim
 会以 Hebrew 模式 运行, 比如 设置 'hkmap' 和 'rightleft' 选项. 不然
 .B Vim
@@ -288,73 +288,87 @@ Lisp 模式.
 用 <Tab> 和 CTRL-D 来 完成 帮助主题 (":help cmdline-completion").
 可以 用 标记 从 一个地方 跳到 另一个 地方 (有点像 超文本连接, 见 ":help").
 所有的 文档 都可以 这样 来浏览, 比如 ":help syntax.txt".
-.SH "文件 (FILES)"
+.SH "文件"
 .TP 15
-/usr/share/vim/vim56/doc/*.txt
+/usr/share/vim/vim80/doc/*.txt
 .B Vim
-文档文件. 用 ":help doc-file-list" 获得 完整的 列表.
+的文档文件。
+请使用 ":help doc\-file\-list" 获得完整的列表。
 .TP
-/usr/share/vim/vim56/doc/tags
-在 文档文件中 查找信息 用的 标签文件.
+/usr/share/vim/vim80/doc/tags
+在文档文件中查找信息用的标签文件。
 .TP
-/usr/share/vim/vim56/syntax/syntax.vim
-系统 语法 初始化 文件.
+/usr/share/vim/vim80/syntax/syntax.vim
+系统层面的语法初始化文件。
 .TP
-/usr/share/vim/vim56/syntax/*.vim
-各种语言的 语法文件.
+/usr/share/vim/vim80/syntax/*.vim
+各种语言的语法文件。
 .TP
 /usr/share/vim/vimrc
-系统
+系统层面的
 .B Vim
-初始化文件.
+初始化文件。
+.TP
+~/.vimrc
+您的个人
+.B Vim
+初始化文件。
 .TP
 /usr/share/vim/gvimrc
-系统 gvim 初始化文件.
+系统层面的 gvim 初始化文件。
 .TP
-/usr/share/vim/vim56/optwin.vim
-":options" 命令 所用的 脚本文件, 这是个 查看 和 设置选项的 很好的 办法.
+~/.gvimrc
+您的个人 gvim 初始化文件。
 .TP
-/usr/share/vim/vim56/menu.vim
-gvim 的 系统菜单 初始化文件.
+/usr/share/vim/vim80/optwin.vim
+":options" 命令所用的脚本文件，这是个查看和设置选项的好方法。
 .TP
-/usr/share/vim/vim56/bugreport.vim
-用来 生成 错误报告的 脚本文件, 见 ":help bugs".
+/usr/share/vim/vim80/menu.vim
+系统层面的 gvim 菜单初始化文件。
 .TP
-/usr/share/vim/vim56/filetype.vim
-根据 文件名 来判定 文件类型 的 脚本文件, 见 ":help 'filetype'".
+/usr/share/vim/vim80/bugreport.vim
+用来生成错误报告的脚本文件。详见 ":help bugs"。
 .TP
-/usr/share/vim/vim56/scripts.vim
-根据 文件内容 来判定 文件类型 的 脚本文件, 见 ":help 'filetype'".
+/usr/share/vim/vim80/filetype.vim
+根据文件名来判定文件类型的脚本文件。详见 ":help 'filetype'"。
+.TP
+/usr/share/vim/vim80/scripts.vim
+根据文件内容来判定文件类型的脚本文件。详见 ":help 'filetype'"。
+.TP
+/usr/share/vim/vim80/print/*.ps
+用于 PostScript 打印的文件。
 .PP
-最新 信息 参见 VIM 主页：
+要了解最新信息，请查看 VIM 主页：
 .br
 \<URL:http://www.vim.org/\>
-
-.SH "参见 (SEE ALSO)"
+.SH "参见"
 vimtutor(1)
-
-.SH "作者 (AUTHOR)"
-Most of
+.SH "作者"
 .B Vim
-的大部分 都是 Bram Moolenaar 在 很多人的 帮助下 完成的.
-见 ":help credits".
+的大部分都是 Bram Moolenaar 在很多人的帮助下完成的。
+请见
+.B vim
+下的 ":help credits"。
 .br
-虽然 不大会有 最早的 代码存在, 但是
+虽然不大可能还有原始的代码存在, 但是
 .B Vim
-基于 Stevie 写的代码, 之后被 Tim Thompson，
-Tony Andrews and G.R. (Fred) Walter 修改, 然后 才形成的.
-
-.SH "错误 (BUGS)"
-多半都有. 用 ":help todo" 看 已知问题的 列表.
+仍然是基于 Stevie 写的代码，之后被 Tim Thompson、
+Tony Andrews 和 G.R. (Fred) Walter 修改而成的。
+.SH "缺陷"
+也许有吧。
+请用 ":help todo" 查看已知问题的列表。
 .PP
-注意 有些 被 报告为 错误的 事实上 是 应为 太相信 所有的 行为
-都应该 同 Vi 一样, 如果 你因为 它 和 Vi 不一样 而 认为 它 是个
-错误, 你 应该 好好 看看 vi_diff.txt 文件 (或者 在 Vim 中
-键入 :help vi_diff.txt), 并且 看看 'compatible' 和 'cpoptions' 选项.
-
-.SH "[中文版维护人]"
+请留意，有不少地方可能被其他人视为缺陷与错误，
+但实际上这只是因为程序忠实地还原了 Vi 的行为操作。
+如果你觉得有些地方“因为和 Vi 的行为不一样”而应该是错误的，
+也许你应该再仔细阅读一下 vi_diff.txt 文件（或者在 Vim 中输入
+"help vi_diff.txt"）。
+您也应该查一查“compatible”和“cpoptions”选项的用法。
+.SH "[中文版原维护人]"
 .B 唐友 \<tony_ty@263.net\>
-.SH "[中文版最新更新]"
+.SH "[中文版原最新更新]"
 .BR 2001/8/30
-.SH "[中国Linux论坛man手册页翻译计划]"
+.SH "[原中国Linux论坛man手册页翻译计划]"
 .BI http://cmpp.linuxforum.net
+.\" manpages-zh date: 2016-12-18
+.\" manpages-zh orig-date: 2016-12-14
