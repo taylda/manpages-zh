@@ -1,5 +1,7 @@
 .\"
-.\" Copyright 1992, 1993, Geoff Kuenning, Granada Hills, CA
+.\" $Id: sq.1,v 1.12 2005/04/14 14:38:23 geoff Exp $
+.\"
+.\" Copyright 1992, 1993, 1999, 2001, Geoff Kuenning, Claremont, CA
 .\" All rights reserved.
 .\"
 .\" Redistribution and use in source and binary forms, with or without
@@ -15,10 +17,8 @@
 .\"    such.  Binary redistributions based on modified source code
 .\"    must be clearly marked as modified versions in the documentation
 .\"    and/or other materials provided with the distribution.
-.\" 4. All advertising materials mentioning features or use of this software
-.\"    must display the following acknowledgment:
-.\"      This product includes software developed by Geoff Kuenning and
-.\"      other unpaid contributors.
+.\" 4. The code that causes the 'ispell -v' command to display a prominent
+.\"    link to the official ispell Web site may not be removed.
 .\" 5. The name of Geoff Kuenning may not be used to endorse or promote
 .\"    products derived from this software without specific prior
 .\"    written permission.
@@ -35,51 +35,73 @@
 .\" OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
 .\" SUCH DAMAGE.
 .\"
+.\" $Log: sq.1,v $
+.\" Revision 1.12  2005/04/14 14:38:23  geoff
+.\" Update license.
+.\"
+.\" Revision 1.11  2001/07/25 21:51:46  geoff
+.\" Minor license update.
+.\"
+.\" Revision 1.10  2001/07/23 20:24:04  geoff
+.\" Update the copyright and the license.
+.\"
+.\" Revision 1.9  2000/07/19 23:30:12  geoff
+.\" Add a bugs section, and mention gzip instead of compress
+.\"
+.\" Revision 1.8  1999/01/07 01:57:39  geoff
+.\" Update the copyright.
+.\"
+.\" Revision 1.7  1995/11/08  05:09:25  geoff
+.\" Put the synopsis on one line so some versions of "makewhatis" don't
+.\" break.
+.\"
+.\" Revision 1.6  1994/01/25  07:12:07  geoff
+.\" Get rid of all old RCS log lines in preparation for the 3.1 release.
+.\"
+.\"
 .TH SQ 1 LOCAL
-.SH NAME
-sq \- 压缩一个排过序的单词列表
-unsq \- 解压一个排过序的单词列表
-
-.SH "总览 (SYNOPSIS)"
+.SH "名称"
+sq, unsq \- 压缩或解压缩一个已排序的单词列表
+.SH "总览"
 .B sq
 < infile > outfile
 .PP
 .B unsq
 < infile > outfile
-
-.SH "描述 (DESCRIPTION)"
+.SH "描述"
 .I sq
-压缩 一个 排过序的 单词 列表 (一个 字典). 比如:
+压缩一个排过序的单词列表（一个字典）。
+例如：
 .RS
-sort /usr/dict/words | sq | compress > words.sq.Z
+sort \-u /usr/share/dict/words | sq | gzip \-9 > words.sq.gz
 .RE
-会 大概 以 4 为 因数 压缩 字典.
+会以接近 4 的压缩系数对字典进行压缩。
 .PP
 .I unsq
 解压
 .I sq
-的 输出. 比如:
+的输出。例如:
 .RS
-compress -d < words.sq.Z | unsq | sort -f -o words
+gunzip < words.sq.gz | unsq | sort \-f \-o words
 .RE
-会 解压 
+会解压 
 .I sq
-压缩 的 字典.
+所压缩的字典。
 .P
-根据 文档 描述, 它 通过 省略 相同 的 词头 来 压缩, 用 一个 单独 的 字符 取代
-这个 词头, 这个 字符 对 与 前一个词 相同的 字符数 进行 编码.
-词头 的 大小 用 一个 编了码 的 可打印 的 字符 表示:
-0-9 代表 0-9, A-Z 代表 10-35, a-z 代表 36-61.
-
-.SH "作者 (AUTHOR)"
+压缩过程将会去除共同的前缀，将它们替换为单个字符，以此编码先前单词中的共同部分。
+前缀的长度由单个可打印字符编码：
+0\-9 代表 0\-9，A\-Z 代表 10\-35，a\-z 代表 36\-61。
+.SH "缺陷"
+.I sq
+和
+.I unsq
+只能处理最长 256 字符的单词。
+输入数据必须已经过排序，且不可出现重复单词。
+.SH "作者"
 Mike Wexler
-
-.SH "参见 (SEE ALSO)"
+.SH "参见"
 compress(1), sort(1).
-
-.SH "[中文版维护人]"
-.B 唐友 \<tony_ty@263.net\>
-.SH "[中文版最新更新]"
-.BR 2001/9/20
-.SH "[中国Linux论坛man手册页翻译计划]"
-.BI http://cmpp.linuxforum.net
+.\" manpages-zh translator: Boyuan Yang <073plan@gmail.com>
+.\" manpages-zh orig-date: 2005-04-14
+.\" manpages-zh date: 2016-12-18
+.\" manpages-zh orig-package: ispell

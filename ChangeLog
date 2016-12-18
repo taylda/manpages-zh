@@ -1,6 +1,6 @@
 2016-12-18  Boyuan Yang <073plan@gmail.com>
 
-	* Full translation of fs(5).
+	* Full translation of fs(5), sq(1).
 	* Append colophon on building by default.
 	* Remove sh(1) since it should be dash(1) on Debian.
 
