@@ -28,7 +28,7 @@ MANPAGES = [.1 ab.1 ac.1 access.1 ali.1 alias.1 apm.1	 \
 	psfgettable.1 psfstriptable.1 psql.1 pushd.1 pwd.1 quota.1	 \
 	read.1 readonly.1 return.1 rgview.1 rgvim.1 rlogin.1 rm.1	 \
 	rmdir.1 rvi.1 rview.1 rvim.1 scp.1 set.1 setleds.1 setmetamode.1 \
-	sh.1 shift.1 shopt.1 showfont.1 showkey.1 size.1 sleep.1	 \
+	shift.1 shopt.1 showfont.1 showkey.1 size.1 sleep.1	 \
 	smbclient.1 smbcontrol.1 smbrun.1 smbsh.1 smbstatus.1 smbtar.1	 \
 	sort.1 source.1 split.1 sq.1 ssh.1 stat.1 strings.1 stty.1 \
 	subst.1 sum.1 suspend.1 svn.1 svnadmin.1 svndumpfilter.1	 \
