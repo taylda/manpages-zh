@@ -1,7 +1,7 @@
 2016-12-18  Boyuan Yang <073plan@gmail.com>
 
 	* Full translation of fs(5), sq(1).
-	* Import translation for coreutils groups(1).
+	* Import translation for coreutils groups(1), test(1).
 	* Append colophon on building by default.
 	* Remove sh(1) stub since it should be dash(1) on Debian.
 
