@@ -5,8 +5,15 @@
 * Require UTF-8 input and output.
 """
 
+import io
 import sys
 import fileinput
+
+# deal with I/O encoding first
+sys.stdin = io.TextIOWrapper(sys.stdin.buffer, encoding='utf-8')
+def utf8_print(output: str, end="\n"):
+    output_str = output + end
+    sys.stdout.buffer.write(output_str.encode('UTF-8'))
 
 def parse_translator_info(line: str, t_info: dict) -> bool:
     """Try-parse to see if we met the translator information.
@@ -44,33 +51,33 @@ if __name__ == "__main__":
             continue
         if parse_find_colophon(line):
             flag_met_colophon = True
-        print(line, end="")
+        utf8_print(line, end="")
 
     "At the end of the output, append our colophon"
     if not flag_met_colophon:
-        print('.SH "跋"')
+        utf8_print('.SH "跋"')
     else:
         pass
-    print('.PP')
-    print('本页面中文版由中文 man 手册页计划提供。')
+    utf8_print('.PP')
+    utf8_print('本页面中文版由中文 man 手册页计划提供。')
 
     if len(t_info.keys()) > 0:
         "we need another paragraph"
-        print('.PP')
+        utf8_print('.PP')
         if "translator" in t_info.keys():
-            print('\\fI翻译人员\\fR：' + t_info["translator"], end="")
-            print('.br')
+            utf8_print('\\fI翻译人员\\fR：' + t_info["translator"], end="")
+            utf8_print('.br')
         if "orig-date" in t_info.keys():
-            print('\\fI获取日期\\fR：' + t_info["orig-date"], end="")
-            print('.br')
+            utf8_print('\\fI获取日期\\fR：' + t_info["orig-date"], end="")
+            utf8_print('.br')
         if "date" in t_info.keys():
-            print('\\fI翻译日期\\fR：' + t_info["date"], end="")
-            print('.br')
+            utf8_print('\\fI翻译日期\\fR：' + t_info["date"], end="")
+            utf8_print('.br')
         if "orig-package" in t_info.keys():
-            print('\\fI原始软件\\fR：' + t_info["orig-package"], end="")
-            print('.br')
+            utf8_print('\\fI原始软件\\fR：' + t_info["orig-package"], end="")
+            utf8_print('.br')
 
-    print('.PP')
-    print("中文 man 手册页计划：\\fB" +
+    utf8_print('.PP')
+    utf8_print("中文 man 手册页计划：\\fB" +
           "https://github.com/man-pages-zh/manpages-zh" +
           "\\fR")
