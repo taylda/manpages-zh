@@ -1,3 +1,7 @@
+2016-12-23  Boyuan Yang <073plan@gmail.com>
+
+	* Remove support for non-UTF8 encoding.
+
 2016-12-22  Boyuan Yang <073plan@gmail.com>
 
 	* Full translation of fs(5), sq(1).

@@ -1,3 +1,4 @@
 * `append-colophon` program will need to learn the difference between
   BSD-style and traditional style man pages.
 * Some pages are too old to be helpful.
+* Obsolete and remove non-UTF8 support.

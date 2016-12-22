@@ -10,13 +10,8 @@ endif
 
 man_MANS = $(MANPAGES)
 
-if UTF8
 %.6: $(srcdir)/../%.6
 	$(APPEND_COLOPHON) < $< > $@
-else !UTF8
-%.6: $(srcdir)/../%.6
-	$(APPEND_COLOPHON) < $< | iconv -f utf8 -t gbk -o $@
-endif
 
 clean-local:
 	rm -f $(man_MANS)
