@@ -1,14 +1,104 @@
 .\" rpm - Red Hat Package Manager
-.TH "rpm" "8" "1998年12月22日" "Red Hat Software" "Red Hat Linux"
-.SH NAME
-rpm \- Red Hat 包管理器
+.TH "rpm" "8" "2002年6月9日" "Red Hat, Inc."
+.SH 名称
+rpm \- RPM 软件包管理器
 .SH 总览
-\fBrpm\fP [选项] 
-.SH 描述
-\fBrpm\fP是一个很有用的\fI包管理器\fP, 可以用于生成, 安装, 查询, 核实, 
-更新以及卸载单个软件包. 一个\fI包\fP通常包括一个文件档以及关于包
-的信息, 比如名字, 版本, 描述等.
+.SS "查询和验证软件包："
+.PP
 
+
+\fBrpm\fR {\fB-q|--query\fR} [\fBselect-options\fR] [\fBquery-options\fR]
+
+\fBrpm\fR \fB--querytags\fR
+
+\fBrpm\fR {\fB-V|--verify\fR} [\fBselect-options\fR] [\fBverify-options\fR]
+
+.SS "安装、升级和卸载软件包："
+.PP
+
+
+\fBrpm\fR {\fB-i|--install\fR} [\fBinstall-options\fR] \fB\fIPACKAGE_FILE\fB\fR\fI ...\fR
+
+
+
+\fBrpm\fR {\fB-U|--upgrade\fR} [\fBinstall-options\fR] \fB\fIPACKAGE_FILE\fB\fR\fI ...\fR
+
+
+
+\fBrpm\fR {\fB-F|--freshen\fR} [\fBinstall-options\fR] \fB\fIPACKAGE_FILE\fB\fR\fI ...\fR
+
+
+
+\fBrpm\fR {\fB--reinstall\fR} [\fBinstall-options\fR] \fB\fIPACKAGE_FILE\fB\fR\fI ...\fR
+
+
+
+\fBrpm\fR {\fB-e|--erase\fR} [\fB--allmatches\fR] [\fB--nodeps\fR] [\fB--noscripts\fR]
+    [\fB--notriggers\fR] [\fB--test\fR] \fB\fIPACKAGE_NAME\fB\fR\fI\ ...\fR
+
+.SS "杂项："
+.PP
+
+\fBrpm\fR \fB--showrc\fR
+
+\fBrpm\fR \fB--setperms\fR \fB\fIPACKAGE_NAME\fB\fR\fI ...\fR
+
+\fBrpm\fR \fB--setugids\fR \fB\fIPACKAGE_NAME\fB\fR\fI ...\fR
+
+.SS "选择相关选项"
+.PP
+
+
+ [\fB\fIPACKAGE_NAME\fB\fR] [\fB-a,--all\fR] [\fB-f,--file \fIFILE\fB\fR]
+ [\fB-g,--group \fIGROUP\fB\fR] {\fB-p,--package \fIPACKAGE_FILE\fB\fR]
+ [\fB--hdrid \fISHA1\fB\fR] [\fB--pkgid \fIMD5\fB\fR] [\fB--tid \fITID\fB\fR]
+ [\fB--querybynumber \fIHDRNUM\fB\fR] [\fB--triggeredby \fIPACKAGE_NAME\fB\fR]
+ [\fB--whatprovides \fICAPABILITY\fB\fR] [\fB--whatrequires \fICAPABILITY\fB\fR]
+
+.SS "查询相关选项"
+.PP
+
+
+ [\fB--changelog\fR] [\fB-c,--configfiles\fR] [\fB--conflicts\fR]
+ [\fB-d,--docfiles\fR] [\fB--dump\fR] [\fB--filesbypkg\fR] [\fB-i,--info\fR]
+ [\fB--last\fR] [\fB-l,--list\fR] [\fB--obsoletes\fR] [\fB--provides\fR]
+ [\fB--qf,--queryformat \fIQUERYFMT\fB\fR] [\fB-R,--requires\fR]
+ [\fB--scripts\fR] [\fB-s,--state\fR] [\fB--triggers,--triggerscripts\fR]
+
+.SS "验证相关选项"
+.PP
+
+
+ [\fB--nodeps\fR] [\fB--nofiles\fR] [\fB--noscripts\fR]
+ [\fB--nodigest\fR] [\fB--nosignature\fR]
+ [\fB--nolinkto\fR] [\fB--nofiledigest\fR] [\fB--nosize\fR] [\fB--nouser\fR]
+ [\fB--nogroup\fR] [\fB--nomtime\fR] [\fB--nomode\fR] [\fB--nordev\fR]
+ [\fB--nocaps\fR]
+
+.SS "安装相关选项"
+.PP
+
+
+ [\fB--allfiles\fR] [\fB--badreloc\fR] [\fB--excludepath \fIOLDPATH\fB\fR]
+ [\fB--excludedocs\fR] [\fB--force\fR] [\fB-h,--hash\fR]
+ [\fB--ignoresize\fR] [\fB--ignorearch\fR] [\fB--ignoreos\fR]
+ [\fB--includedocs\fR] [\fB--justdb\fR] [\fB--nocollections\fR]
+ [\fB--nodeps\fR] [\fB--nodigest\fR] [\fB--nosignature\fR]
+ [\fB--noorder\fR] [\fB--noscripts\fR] [\fB--notriggers\fR] 
+ [\fB--oldpackage\fR] [\fB--percent\fR] [\fB--prefix \fINEWPATH\fB\fR]
+ [\fB--relocate \fIOLDPATH\fB=\fINEWPATH\fB\fR]
+ [\fB--replacefiles\fR] [\fB--replacepkgs\fR]
+ [\fB--test\fR]
+
+
+
+.SH 描述
+.PP
+\fBrpm\fP是一个强大的的\fI包管理器\fP，可以用于构建、安装、查询、核实、
+更新以及卸载单个软件包。
+一个\fI软件包\fP通常包括一个文件档以及关于包的用于安装和卸载的元信息，
+包括帮助脚本、文件属性和软件包的描述性信息。
+.PP
 必须选取下列基本模式中一个:
 \fI初始化数据库\fP, \fI重新生成数据库\fP, 
 \fI生成包\fP, \fI重新编译包\fP, \fI从Tar包生成RPM包\fP, 
@@ -18,59 +108,7 @@ rpm \- Red Hat 包管理器
 \fI设置所有者和组\fR 以及 \fI显示配置\fP.
 
 
-数据库维护:
-.br
-.I "\fB    rpm \-i [\-\-initdb]\fP"
-.br
-.I "\fB    rpm \-i [\-\-rebuilddb]\fP"
-
-生成:
-.br
-.I "\fB    rpm [\-b|t] [package_spec]+\fP"
-.br
-.I "\fB    rpm [\-\-rebuild] [sourcerpm]+\fP"
-.br
-.I "\fB    rpm [\-\-tarbuild] [tarredsource]+\fP"
-.br
-
-查询:
-.br
-.I "\fB    rpm [\-\-query] [queryoptions]\fP"
-.br
-.I "\fB    rpm [\-\-querytags]\fP"
-.br
-
-维护已安装的包:
-.br
-.I "\fB    rpm [\-\-install] [installoptions] [package_file]+\fP"
-.br
-.I "\fB    rpm [\-\-freshen|\-F] [installoptions] [package_file]+\fP"
-.br
-.I "\fB    rpm [\-\-uninstall|\-e] [uninstalloptions] [package]+\fP"
-.br
-.I "\fB    rpm [\-\-verify|\-V] [verifyoptions] [package]+\fP"
-.br
-
-签名:
-.br
-.I "\fB    rpm [\-\-verify|\-V] [verifyoptions] [package]+\fP"
-.br
-.I "\fB    rpm [\-\-resign] [package_file]+\fP"
-.br
-.I "\fB    rpm [\-\-addsign] [package_file]+\fP"
-.br
-
-Miscellaneous:
-.br
-.I "\fB    rpm [\-\-showrc]\fP"
-.br
-.I "\fB    rpm [\-\-setperms] [package]+\fP"
-.br
-.I "\fB    rpm [\-\-setgids] [package]+\fP"
-.br
-
-
-.SH 普通选项
+.SH 通用选项
 这些选项可以各种不同的方式使用.
 .IP "\fB\-vv\fP"
 将打印出许多难以阅读的调试信息.

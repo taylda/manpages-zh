@@ -58,6 +58,7 @@
 	* Append colophon on building by default.
 	* Remove sh(1) stub since it should be dash(1) on Debian.
 	* Improve translation for gvim(1).
+	* Minor translation of rpm(8).
 
 2016-12-15  Boyuan Yang <073plan@gmail.com>
 
