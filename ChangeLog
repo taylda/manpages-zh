@@ -1,9 +1,63 @@
 2016-12-18  Boyuan Yang <073plan@gmail.com>
 
 	* Full translation of fs(5), sq(1).
-	* Import translation for coreutils groups(1), test(1).
+	* Import new full translation from coreutils:
+	  - b2sum(1)
+	  - link(1)
+	  - pathchk(1)
+	  - printenv(1)
+	  - sha1sum(1)
+	  - sha224sum(1)
+	  - sha256sum(1)
+	  - sha384sum(1)
+	  - timeout(1)
+	  - unexpand(1)
+	  - unlink(1)
+	  - users(1)
+	  - whoami(1)
+	* Update full translation for coreutils:
+	  - arch(1)
+	  - base32(1)
+	  - base64(1)
+	  - basename(1)
+	  - cat(1)
+	  - chgrp(1)
+	  - cksum(1)
+	  - dirname(1)
+	  - echo(1)
+	  - env(1)
+	  - expand(1)
+	  - expr(1)
+	  - factor(1)
+	  - false(1)
+	  - groups(1)
+	  - head(1)
+	  - hostid(1)
+	  - install(1)
+	  - logname(1)
+	  - nice(1)
+	  - paste(1)
+	  - printf(1)
+	  - pwd(1)
+	  - rm(1)
+	  - rmdir(1)
+	  - seq(1)
+	  - sha512sum(1)
+	  - sleep(1)
+	  - sum(1)
+	  - sync(1)
+	  - tac(1)
+	  - test(1)
+	  - touch(1)
+	  - true(1)
+	  - tty(1)
+	  - uname(1)
+	  - wc(1)
+	  - who(1)
+	  - yes(1)
 	* Append colophon on building by default.
 	* Remove sh(1) stub since it should be dash(1) on Debian.
+	* Improve translation for gvim(1).
 
 2016-12-15  Boyuan Yang <073plan@gmail.com>
 
