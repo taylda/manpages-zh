@@ -28,6 +28,11 @@ AS_IF([test "x${append_colophon}" = "xtrue"],
        ],
       [])
 
+AC_CHECK_PROG([HAVE_OPENCC], [opencc], [yes], [no])
+AS_IF([test "x${HAVE_OPENCC}" = "xno"],
+      [AC_MSG_ERROR([you need to install opencc to build the package.])],
+      [])
+
 AC_ARG_ENABLE([zhtw],
               [AS_HELP_STRING([--disable-zhtw],
                               [do not generate manpages for zh_TW])],
@@ -38,22 +43,9 @@ AC_ARG_ENABLE([zhtw],
                 esac],
               [zhtw=true]
               )
-if test x$zhtw = xtrue; then
-AC_PATH_PROG([AUTOB5], [autob5])
-if test x$AUTOB5 = x; then
-        AC_MSG_ERROR([cannot find autob5, you can install zh-autoconvert from http://ftp.debian.org/debian/pool/main/z/zh-autoconvert, or use --disable-zhtw])
-fi
-AC_PATH_PROG([ICONV], [iconv])
-if test x$ICONV = x; then
-        AC_MSG_ERROR([cannot find iconv, you can use --disable-zhtw])
-fi
-AC_PATH_PROG([PERL], [perl])
-if test x$PERL = x; then
-        AC_MSG_ERROR([cannot find perl, you can use --disable-zhtw])
-fi
-zh_TW=zh_TW
-AC_SUBST(zh_TW)
-fi
+AS_IF([test "x${zhtw}" = "xtrue"],
+      [zh_TW=zh_TW; AC_SUBST([zh_TW])],
+      [])
 
 AC_ARG_ENABLE([zhcn],
               [AS_HELP_STRING([--disable-zhcn],
@@ -65,10 +57,9 @@ AC_ARG_ENABLE([zhcn],
                 esac],
               [zhcn=true]
               )
-if test x$zhcn = xtrue; then
-        zh_CN=zh_CN
-        AC_SUBST(zh_CN)
-fi
+AS_IF([test "x${zhcn}" = "xtrue"],
+      [zh_CN=zh_CN; AC_SUBST([zh_CN])],
+      [])
 
 AC_CONFIG_FILES([Makefile
                  DOCS/Makefile

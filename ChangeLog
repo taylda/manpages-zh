@@ -1,6 +1,7 @@
 2016-12-23  Boyuan Yang <073plan@gmail.com>
 
 	* Remove support for non-UTF8 encoding.
+	* Replace totw.pl with opencc 1.x.
 
 2016-12-22  Boyuan Yang <073plan@gmail.com>
 

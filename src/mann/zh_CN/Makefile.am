@@ -10,17 +10,10 @@ endif
 
 man_MANS = $(MANPAGES)
 
-if UTF8
 %tcl: $(srcdir)/../%tcl
-	$(APPEND_COLOPHON) < $< > $@
+	$(APPEND_COLOPHON) < $< | opencc -c t2s.json > $@
 %tk: $(srcdir)/../%tk
-	$(APPEND_COLOPHON) < $< > $@
-else !UTF8
-%tcl: $(srcdir)/../%tcl
-	$(APPEND_COLOPHON) < $< | iconv -f utf8 -t gbk -o $@
-%tk: $(srcdir)/../%tk
-	$(APPEND_COLOPHON) < $< | iconv -f utf8 -t gbk -o $@
-endif
+	$(APPEND_COLOPHON) < $< | opencc -c t2s.json > $@
 
 clean-local:
 	rm -f $(man_MANS)

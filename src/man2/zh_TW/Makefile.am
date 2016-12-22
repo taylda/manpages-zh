@@ -11,7 +11,7 @@ endif
 man_MANS = $(MANPAGES)
 
 %.2: $(srcdir)/../%.2
-	$(APPEND_COLOPHON) < $< | iconv -f utf8 -t gbk | autob5 | $(top_srcdir)/utils/totw.pl | iconv -f big5 -t utf8 > $@
+	$(APPEND_COLOPHON) < $< | opencc -c s2t.json > $@
 
 clean-local:
 	rm -f $(man_MANS)

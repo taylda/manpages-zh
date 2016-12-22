@@ -30,10 +30,8 @@
 构建依赖包括：
 
 * autotools (autoconf, automake)
-* perl
 * python3
-* zh-autoconvert
-* iconv
+* opencc 1.x
 
 ### 从 Linux 发行版安装
 

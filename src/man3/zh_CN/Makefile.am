@@ -11,7 +11,7 @@ endif
 man_MANS = $(MANPAGES)
 
 %.3: $(srcdir)/../%.3
-	$(APPEND_COLOPHON) < $< > $@
+	$(APPEND_COLOPHON) < $< | opencc -c t2s.json > $@
 
 clean-local:
 	rm -f $(man_MANS)
