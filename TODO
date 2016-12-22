@@ -1,4 +1,3 @@
-TODO List
-=========
-
-* Replace bundled totw.pl with opencc 1.x.
+* `append-colophon` program will need to learn the difference between
+  BSD-style and traditional style man pages.
+* Some pages are too old to be helpful.
