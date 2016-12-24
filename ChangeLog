@@ -1,5 +1,9 @@
 2016-12-24  Boyuan Yang <073plan@gmail.com>
 
+	* Drop mailto(1), disappeared since Debian 6.
+
+2016-12-24  Boyuan Yang <073plan@gmail.com>
+
 	* minor fix for append-colophon.
 	* Also distribute append-colophon in tarball.
 	* Drop zic2xpm(6), disappeared since Debian 6.
