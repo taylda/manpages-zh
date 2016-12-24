@@ -1,5 +1,18 @@
 manpages-zh
 
+Version 1.6.0 (2016-12-24)
+* major changes in build toolchain.
+  构建者请注意：软件构建改变了工具依赖：
+  + python3
+  + opencc 1.x
+  - perl
+  - zh-autoconvert
+  - iconv
+* no longer provide with option to build non-UTF8 pages.
+* cleanup and updates.
+  + import a lot of translations of coreutils 8.26.
+  - please view ChangeLog for detailed changes.
+
 Version 1.5.3 (2013-XX-XX)
 * update tar.1
 

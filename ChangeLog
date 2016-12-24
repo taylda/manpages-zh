@@ -1,3 +1,11 @@
+2016-12-24  Boyuan Yang <073plan@gmail.com>
+
+	* minor fix for append-colophon.
+	* Also distribute append-colophon in tarball.
+	* Drop zic2xpm(6), disappeared since Debian 6.
+	* Partial translation update of info(1).
+	* Release 1.6.0.
+
 2016-12-23  Boyuan Yang <073plan@gmail.com>
 
 	* Remove support for non-UTF8 encoding.

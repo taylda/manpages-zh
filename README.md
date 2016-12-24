@@ -160,3 +160,10 @@ http://github.com/lidaobing/manpages-zh/tree/master
 
 项目探索了多种绕过 roff 源码生成手册页的工作方式，包括 markdown / docbook / po4a 等。
 项目于当年陷入停滞。
+
+* * *
+
+## 参考站点
+
+* https://manned.org/
+* http://http://manpages.ubuntu.com/

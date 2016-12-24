@@ -2,7 +2,7 @@
 # Process this file with autoconf to produce a configure script.
 
 AC_PREREQ([2.61])
-AC_INIT([manpages-zh],[1.5.90],[https://github.com/man-pages-zh/manpages-zh/issues])
+AC_INIT([manpages-zh],[1.6.0],[https://github.com/man-pages-zh/manpages-zh/issues])
 AC_CONFIG_SRCDIR([src/man1/basename.1])
 AM_INIT_AUTOMAKE([subdir-objects])
 AM_MAINTAINER_MODE
@@ -98,7 +98,6 @@ AC_OUTPUT
 echo
 echo "manpages-zh configure summary"
 echo "============================="
-echo "UTF-8   : $utf8"
 echo "zh_CN   : $zhcn"
 echo "zh_TW   : $zhtw"
 echo "COLOPHON: $append_colophon"

@@ -15,6 +15,13 @@ def utf8_print(output: str, end="\n"):
     output_str = output + end
     sys.stdout.buffer.write(output_str.encode('UTF-8'))
 
+def parse_is_stub(line: str) -> bool:
+    """Try-parse to see if the document is a stub"""
+    if line[:4] == ".so ":
+        return True
+    else:
+        return False
+
 def parse_translator_info(line: str, t_info: dict) -> bool:
     """Try-parse to see if we met the translator information.
 
@@ -44,9 +51,13 @@ def parse_find_colophon(line: str) -> bool:
 if __name__ == "__main__":
     "some flags here"
     flag_met_colophon = False
+    no_colophon = False
     t_info = {} # translator information
 
     for line in fileinput.input():
+        if parse_is_stub(line):
+            "only a '.so foobar.x' stub, copy as-is"
+            no_colophon = True
         if parse_translator_info(line, t_info):
             continue
         if parse_find_colophon(line):
@@ -54,6 +65,8 @@ if __name__ == "__main__":
         utf8_print(line, end="")
 
     "At the end of the output, append our colophon"
+    if no_colophon:
+        sys.exit(0)
     if not flag_met_colophon:
         utf8_print('.SH "跋"')
     else:
