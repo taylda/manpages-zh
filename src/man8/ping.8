@@ -1,49 +1,62 @@
-.TH "ping" "8"  "iputils-ss990107"
+.TH "ping" "8" "2016年11月10日" "iputils-161105" "系统管理员手册：iptuils"
 .SH 名称
-ping, ping6\ - 向网络主机发送ICMP回显请求(ECHO_REQUEST)分组
-.SH 命令概要
-\fBping\fR [\fB -LRUbdfnqrvR\fR] [\fB-c \fIcount\fB\fR] [\fB-i \fIwait\fB\fR]
-[\fB-l \fIpreload\fB\fR] [\fB-p \fIpattern\fB\fR] [\fB-s \fI packetsize\fB\fR]
+ping \- 向网络主机发送 ICMP 回显请求（ECHO_REQUEST）分组
+.SH 概要
+
+\fBping\fR [\fB-aAbBdDfhLnOqrRUvV46\fR] [\fB-c \fIcount\fB\fR] [\fB-F \fIflowlabel\fB\fR] [\fB-i \fIinterval\fB\fR] [\fB-I \fIinterface\fB\fR] [\fB-l \fIpreload\fB\fR] [\fB-m \fImark\fB\fR] [\fB-M \fIpmtudisc_option\fB\fR] [\fB-N \fInodeinfo_option\fB\fR] [\fB-w \fIdeadline\fB\fR] [\fB-W \fItimeout\fB\fR] [\fB-p \fIpattern\fB\fR] [\fB-Q \fItos\fB\fR] [\fB-s \fIpacketsize\fB\fR] [\fB-S \fIsndbuf\fB\fR] [\fB-t \fIttl\fB\fR] [\fB-T \fItimestamp option\fB\fR] [\fB\fIhop\fB\fR\fI ...\fR] \fB\fIdestination\fB\fR
+
+.SH "描述"
 .PP
-更改过的选项：
-.TP 2.5i
--I <device name>
-可用于设置输出接口
+\fBping\fR 使用 ICMP 协议规定的 ECHO_REQUEST
+数据报引发一个来自主机或网管的 ICMP ECHO_RESPONSE 回应。
+ECHO_REQUEST 数据报（“ping”信息）有一个 IP 和 ICMP 头部，
+其后跟随了一个结构，包含一个时间相关的值以及一个任意的“pad”
+字节的随机数用以填充数据包。
 .PP
-新增选项：
-.TP 2.5i
--T [ping only]:
-发送IP时间戳选项。
-.TP
--T tsonly
-只有时间戳
-.TP
--T tsandaddr
-时间戳和地址
-.TP
--T tsprespec host1 [host2 [host3 [host 4]]]
-预先指定跳数的时间戳
+\fBping\fR可以同时在 IPv4 和 IPv6 下工作。
+如需明确强制指定使用其中某个，可以使用 \fB-4\fR 或者 \fB-6\fR。
 .PP
-改进：
+\fBping\fR 还可以发送 IPv6 节点信息查询（Node Information Quries,
+RFC4620）。
+中间节点（\fIhop\fR）可能不被允许，因为 IPv6 源路由已不赞成使用（RFC5095）。
+.SH "选项"
 .TP
-- 可理解ICMP错误信息并恢复正确。
+\fB-4\fR
+仅使用 IPv4。
 .TP
-- 可检查ICMP校验和并把损坏的分组恢复正确。
+\fB-6\fR
+仅使用 IPv6。
 .TP
-- 可正确测试linux的回环地址。
-.SH 描述
-.B  ping
-程序使用
-.I ICMP
-协议的强制回显请求数据报以使主机或网关发送一份
-.I ICMP
-的回显应答。回显请求数据报("
-.B pings
-")含有一个
-.I IP
-及
-.I ICMP
-的报头，后跟一个``时间值关键字''然后是一段任意长度的填充字节用于把保持分组长度为16的整数倍。以下是程序的选项：
+\fB-a\fR
+Audible ping.
+.TP
+\fB-A\fR
+自适应 ping。
+.TP
+\fB-b\fR
+允许对一个广播地址进行 ping。
+.TP
+\fB-t \fIttl\fB\fR
+仅进行\fBping\fR。
+设置 IP 的 TTL（Time to Live）。
+.TP
+\fB-T \fItimestamp option\fB\fR
+设置特殊的 IP 时间戳选项。
+\fItimestamp option\fR 可以是
+\fItsonly\fR（仅时间戳）、
+\fItsandaddr\fR（时间戳和地址）或者
+\fItsprespec host1 [host2 [host3 [host4]]]\fR（预先指定跳数的时间戳）。
+.TP
+\fB-U\fR
+打印完整的用户到用户的延迟（旧行为）。通常情况下
+\fBping\fR
+打印网络往返延时，它们可能不同，例如在 DNS 解析出现失败时。
+.TP
+\fB-v\fR
+输出详细信息。
+.TP
+\fB-V\fR
+显示版本并退出。
 .TP
 .B -c 
 .I count
@@ -53,15 +66,16 @@ ping, ping6\ - 向网络主机发送ICMP回显请求(ECHO_REQUEST)分组
 .I count
 个分组后没有收到任何分组的特别情况是发送导致了终止(选程主机或网关不可达)。
 .TP
-.B -d	     
-在所用的套接字上使用
-.B SO_DEBUG
-选项。
+\fB-d\fR
+在所用的套接字上使用 SO_DEBUG 选项。
+实际上，这个套接字选项没有被 Linux 内核所使用。
 .TP
-.B  -f	     
-以高速方式来作
-.I ping
-。以分组返回的速度来输出其它分组或每秒输出百次。当收到每个回显应答并打印一个退格符时，对每个回显请求都打印一个句点``.''。这可以快速显示出丢弃了多少个分组，只有超级用户可以用这个选项。这（操作）对网络要求非常苛刻，应该慎重使用。
+\fB-D\fR
+在每行之前打印时间戳（UNIX 时间 + gettimeofday 中的毫秒）。
+.TP
+\fB-f\fR
+以高速（洪水）方式进行 ping。
+以分组返回的速度来输出其它分组或每秒输出百次。当收到每个回显应答并打印一个退格符时，对每个回显请求都打印一个句点``.''。这可以快速显示出丢弃了多少个分组，只有超级用户可以用这个选项。这（操作）对网络要求非常苛刻，应该慎重使用。
 .TP
 .B -i
 .I  wait
@@ -109,11 +123,6 @@ ping, ping6\ - 向网络主机发送ICMP回显请求(ECHO_REQUEST)分组
 字节的
 .I ICMP
 数据报。
-.TP
-.B  -v	     
-详细模式输出。打印接收到的回显应答以外的
-.I ICMP
-分组。
 .TP
 .B  -w
 .I  waitsecs
@@ -181,22 +190,44 @@ TCP/IP规定TCP分组的TTL字段应该设为60，但很多系统用较小的值
 把它设为其它值。
 有些主机对ICMP分组使用与TCP分组相同的值，例如30或
 60。其它系统使用原始值。(校对者请指教此句之确切含义：meaculpa@21cn.com)
-.SH 错误
-很多主机和网关忽略记录路由选项。
+.SH "缺陷"
+.TP 0.2i
+\(bu
+很多主机和网关忽略记录路由（RECORD_ROUTE）选项。
+.TP 0.2i
+\(bu
+最大 IP 头部长度对如记录路由（RECORD_ROUTE)这样非常有用的选项来说长度太小。
+但对这个问题也没什么可做的了。
+.TP 0.2i
+\(bu
+通常情况并不推荐以高速方式作 ping，
+而且只应当在非常受限的条件下才可对广播地址这样做。
+.SH "另见"
+.PP
+\fBnetstat\fR(1),
+\fBifconfig\fR(8).
+.SH "历史"
+.PP
+\fBping\fR 命令出现于 4.3BSD。
+.PP
+当前文档描述的版本是它在 Linux 平台上的后续版本。
+.PP
+从版本 s20160815 开始，\fBping6\fR 二进制程序不再存在。
+它已经被合并进了 \fBping\fR 程序中。
+创建一个名为 \fBping6\fR 指向 \fBping\fR 的符号链接可以提供原有的功能。
+.SH "安全性"
+\fBping\fR 在下述条件下运行时需要 CAP_NET_RAW 能力：
+1) 如果程序被用于进行 non-echo 查询（请见 \fB-N\fR 选项），或
+2) 如果内核不支持 non-raw ICMP 套接字，或
+3) 如果用户不被允许创建 ICMP echo 套接字。
+本程序设计可以用于在设置用户ID为 root 的情况下运行。
+.SH "获取"
+.PP
+\fBping\fR 是 \fIiputils\fR 软件包的一部分。
+其最新版本源代码可以从下述地址获取到：
+http://www.skbuff.net/iputils/iputils-current.tar.bz2.
+.\".SH "[中文版维护人]"
+.\".B meaculpa <meaculpa@21cn.com>
+.\".SH "[中文版最新更新]"
+.\".B 2000/12/08
 
-最大IP首部对如记录路由这样非常有用的选项来说长度太小。但对此无法再做更多
-事情了。
-
-通常情况并不推荐以高速方式作ping，而且只在非常受限的条件下才可对广播地址
-这样做。
-.SH 另见
-netstat(1),  ifconfig(8)
-.SH 历史
-ping程序出现于4.3BSD 。
-
-.SH "[中文版维护人]"
-.B meaculpa <meaculpa@21cn.com>
-.SH "[中文版最新更新]"
-.B 2000/12/08
-.SH "[中国Linux论坛man手册页翻译计划]"
-.BI http://cmpp.linuxforum.net
