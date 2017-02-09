@@ -3,6 +3,8 @@
 	* Drop sync(8), superceded by sync(1).
 	* Partial translation of ping(8).
 	* Refresh translation for info(5).
+	* Minor updates for:
+	  - basename(3)
 
 2016-12-24  Boyuan Yang <073plan@gmail.com>
 
