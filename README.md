@@ -49,6 +49,16 @@ pacman -S man-pages-zh_cn man-pages-zh_tw
 
 安装后，使用语言对应的 locale 运行 man 查阅手册页时会优先查阅翻译版本。
 
+### 使用
+
+安装后，正常使用 `man` 命令即可。在您的系统设置为中文环境时，
+如果有对应的中文手册页，则该手册页将显示中文版本。
+
+为了确保您的阅览体验最佳，请保证您系统上的 groff 为最新版本（1.22.3，可能的话请使用尚未发布的 1.22.4）。
+旧版 groff 可能对中文没有良好支持。据用户反馈，macos 上无法正常显示中文字符。
+
+您还可以在线阅读手册页内容：[点我前往](https://manpages.debian.org/unstable/manpages-zh/index.html)（在线渲染由 Debian 提供）
+
 * * *
 
 ## 项目历史
@@ -166,4 +176,5 @@ http://github.com/lidaobing/manpages-zh/tree/master
 ## 参考站点
 
 * https://manned.org/
-* http://http://manpages.ubuntu.com/
+* http://manpages.ubuntu.com/
+* https://manpages.debian.org/
