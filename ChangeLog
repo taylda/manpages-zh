@@ -1,6 +1,12 @@
 2017-02-15  Boyuan Yang <073plan@gmail.com>
 
 	* Retranslate intro(1) using po4a.
+	* Remove outdated src/cman/ conf examples.
+	  Modern man-db and groff can handle Chinese properly.
+	* Remove outdated tools in utils/ dir.
+	  Most of them are provided by external software "opencc".
+	* Refine README.md.
+	* Release 1.6.1.
 
 2017-02-12  Boyuan Yang <073plan@gmail.com>
 

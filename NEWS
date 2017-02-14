@@ -1,5 +1,10 @@
 manpages-zh
 
+Version 1.6.1 (2017-02-15)
+* various translations.
+* remove outdated tools.
+  - see ChangeLog for detailed changes.
+
 Version 1.6.0 (2016-12-24)
 * major changes in build toolchain.
   构建者请注意：软件构建改变了工具依赖：

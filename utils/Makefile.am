@@ -1,1 +1,1 @@
-EXTRA_DIST = totw.pl append-colophon
+EXTRA_DIST = append-colophon
