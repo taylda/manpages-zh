@@ -1,5 +1,10 @@
 2017-02-15  Boyuan Yang <073plan@gmail.com>
 
+	* Fix behaviour changes in coreutils.
+	  - Retranslate cp(1), mkdir(1), mkfifo(1), mknod(1).
+
+2017-02-15  Boyuan Yang <073plan@gmail.com>
+
 	* Retranslate intro(1) using po4a.
 	* Remove outdated src/cman/ conf examples.
 	  Modern man-db and groff can handle Chinese properly.
