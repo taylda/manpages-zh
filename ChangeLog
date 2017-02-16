@@ -3,12 +3,19 @@
 	* Remove charset(1), disappeared since 2013.
 	* Remove reference to zh.tmac.
 	* Let append-colophon script recognize mdoc format.
+	  (GitHub: man-pages-zh/manpages-zh#4)
 	* Raise error on disabling both zh_CN and zh_TW format in configure.ac.
+	* Follow changes in coreutils translation:
+	  + translation for realpath(1).
+	  + update translation for id(1), install(1), md5sum(1), nohup(1).
+	* Release 1.6.2.
 
 2017-02-15  Boyuan Yang <073plan@gmail.com>
 
 	* Fix behaviour changes in coreutils.
 	  - Retranslate cp(1), mkdir(1), mkfifo(1), mknod(1).
+	    (GitHub: man-pages-zh/manpages-zh#1, lidaobing/manpages-zh#18)
+		(RH: #1263636)
 
 2017-02-15  Boyuan Yang <073plan@gmail.com>
 

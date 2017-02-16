@@ -1,5 +1,11 @@
 manpages-zh
 
+Version 1.6.2 (2017-02-16)
+* document behaviour changes in coreutils 8.26.
+* various translations.
+* fix mdoc grammar mistakes.
+  - see ChangeLog for detailed changes.
+
 Version 1.6.1 (2017-02-15)
 * various translations.
 * remove outdated tools.
