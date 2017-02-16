@@ -42,19 +42,44 @@ def parse_find_colophon(line: str) -> bool:
     Definition of colophon:
         .SH "跋" or .SH 跋
     """
-    if '.SH "跋"\n' == line or '.SH 跋\n' == line:
+    colophon_lines = [
+            '.SH "跋"\n',
+            '.SH 跋\n',
+            '.Sh 跋\n',
+            '.Sh "跋"\n']
+    if line in colophon_lines:
         return True
     else:
         return False
     pass
 
+def parse_mdoc_type(line: str) -> bool:
+    """Determine if we have met a mdoc page.
+    """
+    if line[:4] == '.Sh ':
+        return True
+    else:
+        return False
+
 if __name__ == "__main__":
     "some flags here"
     flag_met_colophon = False
     no_colophon = False
+    mdoc_type = False
     t_info = {} # translator information
+    format_mdoc_lines = {
+            "new_paragraph": ".Pp",
+            "new_section_colophon": '.Sh "跋"',
+            }
+    format_man_lines = {
+            "new_paragraph": ".PP",
+            "new_section_colophon": '.SH "跋"',
+            }
+    format_lines = None
 
     for line in fileinput.input():
+        if parse_mdoc_type(line):
+            mdoc_type = True
         if parse_is_stub(line):
             "only a '.so foobar.x' stub, copy as-is"
             no_colophon = True
@@ -65,32 +90,38 @@ if __name__ == "__main__":
         utf8_print(line, end="")
 
     "At the end of the output, append our colophon"
+    if mdoc_type:
+        format_lines = format_mdoc_lines
+    else:
+        format_lines = format_man_lines
     if no_colophon:
         sys.exit(0)
     if not flag_met_colophon:
-        utf8_print('.SH "跋"')
+        utf8_print(format_lines["new_section_colophon"])
     else:
         pass
-    utf8_print('.PP')
+    #utf8_print(format_lines["new_paragraph"])
+    utf8_print('.br')
     utf8_print('本页面中文版由中文 man 手册页计划提供。')
 
     if len(t_info.keys()) > 0:
         "we need another paragraph"
-        utf8_print('.PP')
+        utf8_print(format_lines["new_paragraph"])
         if "translator" in t_info.keys():
-            utf8_print('\\fI翻译人员\\fR：' + t_info["translator"], end="")
+            utf8_print('翻译人员：' + t_info["translator"], end="")
             utf8_print('.br')
         if "orig-date" in t_info.keys():
-            utf8_print('\\fI获取日期\\fR：' + t_info["orig-date"], end="")
+            utf8_print('获取日期：' + t_info["orig-date"], end="")
             utf8_print('.br')
         if "date" in t_info.keys():
-            utf8_print('\\fI翻译日期\\fR：' + t_info["date"], end="")
+            utf8_print('翻译日期：' + t_info["date"], end="")
             utf8_print('.br')
         if "orig-package" in t_info.keys():
-            utf8_print('\\fI原始软件\\fR：' + t_info["orig-package"], end="")
+            utf8_print('原始软件：' + t_info["orig-package"], end="")
             utf8_print('.br')
 
-    utf8_print('.PP')
+    #utf8_print(format_lines["new_paragraph"])
+    utf8_print('.br')
     utf8_print("中文 man 手册页计划：\\fB" +
           "https://github.com/man-pages-zh/manpages-zh" +
           "\\fR")

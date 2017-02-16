@@ -2,6 +2,7 @@
 
 	* Remove charset(1), disappeared since 2013.
 	* Remove reference to zh.tmac.
+	* Let append-colophon script recognize mdoc format.
 
 2017-02-15  Boyuan Yang <073plan@gmail.com>
 
