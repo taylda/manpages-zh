@@ -49,7 +49,7 @@ AS_IF([test "x${zhtw}" = "xtrue"],
 
 AC_ARG_ENABLE([zhcn],
               [AS_HELP_STRING([--disable-zhcn],
-                              [do not generate manpage for zh_CN])],
+                              [do not generate manpages for zh_CN])],
               [case "${enableval}" in
                 yes) zhcn=true ;;
                 no) zhcn=false ;;
@@ -60,6 +60,11 @@ AC_ARG_ENABLE([zhcn],
 AS_IF([test "x${zhcn}" = "xtrue"],
       [zh_CN=zh_CN; AC_SUBST([zh_CN])],
       [])
+
+AS_IF([test "x${zhcn}" = "xfalse" && test "x${zhtw}" = "xfalse" ],
+      [AC_MSG_ERROR([You cannot disable zh_CN and zh_TW pages together. Exiting...])],
+      [])
+
 
 AC_CONFIG_FILES([Makefile
                  DOCS/Makefile

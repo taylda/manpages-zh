@@ -3,6 +3,7 @@
 	* Remove charset(1), disappeared since 2013.
 	* Remove reference to zh.tmac.
 	* Let append-colophon script recognize mdoc format.
+	* Raise error on disabling both zh_CN and zh_TW format in configure.ac.
 
 2017-02-15  Boyuan Yang <073plan@gmail.com>
 
