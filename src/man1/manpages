@@ -1,7 +1,7 @@
 MANPAGES = [.1 ab.1 ac.1 access.1 ali.1 alias.1 apm.1 ar.1	 \
 	arch.1 at.1 b2sum.1 basename.1 bash.1 bg.1 biff.1 bind.1	 \
 	break.1 builtin.1 builtins.1 bunzip2.1 bzcat.1 bzip2.1		 \
-	bzip2recover.1 cal.1 cat.1 cd.1 charset.1 chattr.1	 \
+	bzip2recover.1 cal.1 cat.1 cd.1 chattr.1	 \
 	chgrp.1 chmod.1 chown.1 chroot.1 chvt.1 cksum.1 clear.1	 \
 	clusterdb.1 col.1 comm.1 command.1 compgen.1 complete.1		 \
 	continue.1 cp.1 cpio.1 createdb.1 createlang.1 createuser.1	 \
