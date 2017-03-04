@@ -6,6 +6,7 @@
 	  - fold(1)
 	  - uniq(1)
 	* Refresh coreutils release date (2017-01 now).
+	* Release 1.6.2.1.
 
 2017-02-26  Boyuan Yang <073plan@gmail.com>
 
