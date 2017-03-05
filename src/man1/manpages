@@ -24,7 +24,7 @@ MANPAGES = [.1 ab.1 ac.1 access.1 ali.1 alias.1 apm.1 ar.1	 \
 	mpg123.1 msmtp.1 mv.1 nice.1 nmblookup.1 nohup.1 nroff.1	 \
 	octave.1 octave-bug.1 octave-config.1 paste.1 pathchk.1	 \
 	perl.1 pg_config.1 pg_controldata.1 pg_ctl.1 pg_dump.1		 \
-	pg_dumpall.1 pg_resetxlog.1 pg_restore.1 pgtclsh.1 pgtksh.1	 \
+	pg_dumpall.1 pg_resetxlog.1 pg_restore.1 pgtclsh.1 pgtksh.1 pinky.1	 \
 	popd.1 postgres.1 postmaster.1 printf.1 printenv.1 psfaddtable.1	 \
 	psfgettable.1 psfstriptable.1 psql.1 pushd.1 pwd.1 quota.1	 \
 	read.1 readlink.1 readonly.1 realpath.1 return.1 rgview.1 rgvim.1 rlogin.1 rm.1	 \
