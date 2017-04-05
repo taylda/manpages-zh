@@ -2,6 +2,7 @@
 
 	* Add comment function to append-colophon utility.
 	* Add some systemd man pages provided by 金步国.
+	* Release 1.6.3.
 
 2017-03-05  Boyuan Yang <073plan@gmail.com>
 
