@@ -40,9 +40,18 @@ DFSG（DFSG-Compatible）而不包含不可变章节。
 * python3
 * opencc 1.x
 
+### “编译”安装
+
+```bash
+autoreconf --install --force
+./configure
+make
+make install # 需要超级用户权限
+```
+
 ### 从 Linux 发行版安装
 
-Debian:
+Debian / Ubuntu:
 ```bash
 sudo apt update
 sudo apt install manpages-zh
@@ -53,6 +62,20 @@ Arch Linux:
 pacman -Syu
 pacman -S man-pages-zh_cn man-pages-zh_tw
 ```
+
+Red Hat / CentOS:
+```bash
+yum update
+yum install man-pages-zh-CN
+```
+
+Fedora:
+```bash
+dnf update
+dnf install man-pages-zh-CN
+```
+
+**注意**：RHEL/CentOS 6/7 及 Fedora 24 以前的软件源中提供的版本于原 i18n-zh 项目时期发布，本项目不提供正式支持。红帽系发行版未提供繁体/正体中文版本。
 
 安装后，使用语言对应的 locale 运行 man 查阅手册页时会优先查阅翻译版本。
 
