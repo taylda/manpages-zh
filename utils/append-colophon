@@ -119,6 +119,9 @@ if __name__ == "__main__":
         if "orig-package" in t_info.keys():
             utf8_print('原始软件：' + t_info["orig-package"], end="")
             utf8_print('.br')
+        if "comment" in t_info.keys():
+            utf8_print(t_info["comment"], end="")
+            utf8_print('.br')
 
     #utf8_print(format_lines["new_paragraph"])
     utf8_print('.br')
