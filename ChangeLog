@@ -5,6 +5,7 @@
 	  networkd.conf(5), resolved.conf(5), sysctl.d(5),
 	  nss-myhostname(8), nss-mymachines(8), nss-resolve(8)
 	* Replace old shutdown(8) with systemd-provided one.
+	* Retranslate more(1).
 
 2017-04-05  Boyuan Yang <073plan@gmail.com>
 
