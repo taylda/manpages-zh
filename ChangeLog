@@ -1,7 +1,28 @@
+2017-04-09  Boyuan Yang <073plan@gmail.com>
+
+	* Add more translated man pages of systemd:
+	  machine-id(5), machine-info(5), modules-load.d(5),
+	  networkd.conf(5), resolved.conf(5), sysctl.d(5),
+	  nss-myhostname(8), nss-mymachines(8), nss-resolve(8)
+	* Replace old shutdown(8) with systemd-provided one.
+
 2017-04-05  Boyuan Yang <073plan@gmail.com>
 
 	* Add comment function to append-colophon utility.
-	* Add some systemd man pages provided by 金步国.
+	* Add some systemd man pages provided by 金步国:
+	  bootctl(1), busctl(1), hostnamectl(1), journalctl(1),
+	  localectl(1), loginctl(1), systemctl(1), networkctl(1),
+	  systemd-ask-password(1), systemd-cat(1), systemd-cgls(1),
+	  systemd-delta(1), systemd-detect-virt(1), systemd-escape(1),
+	  systemd-firstboot(1), systemd-firstboot.service(1),
+	  systemd-inhibit(1), systemd-machine-id-setup(1),
+	  systemd-notify(1), systemd-path(1), systemd-resolve(1),
+	  systemd-socket-activate(1), systemd-tty-ask-password-agent(1),
+	  systemd(1), timedatectl(1), binfmt.d(5), hostname(5),
+	  journald.conf(5), locale.conf(5), localtime(5),
+	  logind.conf(5), os-release(5), vconsole.conf(5), bootup(7),
+	  daemon(7), file-hierarchy(7), hwdb(7), kernel-command-line(7),
+	  halt(8), systemd-quotacheck(8), systemd-quotacheck.service(8)
 	* Release 1.6.3.
 
 2017-03-05  Boyuan Yang <073plan@gmail.com>
