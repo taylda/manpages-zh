@@ -1,3 +1,8 @@
+2017-04-13  Boyuan Yang <073plan@gmail.com>
+
+	* Add a project logo into DOCS directory.
+	* Release 1.6.3.1.
+
 2017-04-09  Boyuan Yang <073plan@gmail.com>
 
 	* Add more translated man pages of systemd:
