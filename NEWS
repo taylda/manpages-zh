@@ -1,5 +1,10 @@
 manpages-zh
 
+Version 1.6.3.2 (2017-10-19)
+* Update for coreutils 8.28.
+* Fix a typo in bash(1).
+* Stop installing gcc(1).
+
 Version 1.6.3.1 (2017-04-13)
 * add some man pages from systemd 231.
 * various translations.
