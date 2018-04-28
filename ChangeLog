@@ -2,6 +2,7 @@
 
 	* Fix FSSTND dir entry in at(1).
 	* Let unsq(1) use the same content of sq(1).
+	* Remove executable permission from Makefile.am files.
 
 2018-04-17  Boyuan Yang <073plan@gmail.com>
 
