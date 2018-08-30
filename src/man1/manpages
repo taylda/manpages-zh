@@ -29,7 +29,7 @@ MANPAGES = [.1 ab.1 ac.1 access.1 ali.1 apm.1 ar.1	 \
 	perl.1 pg_config.1 pg_controldata.1 pg_ctl.1 pg_dump.1		 \
 	pg_dumpall.1 pg_resetxlog.1 pg_restore.1 pgtclsh.1 pgtksh.1 pinky.1	 \
 	postgres.1 postmaster.1 printf.1 printenv.1 psfaddtable.1	 \
-	psfgettable.1 psfstriptable.1 psql.1 pushd.1 pwd.1 quota.1	 \
+	psfgettable.1 psfstriptable.1 psql.1 pwd.1 quota.1	 \
 	readlink.1 realpath.1 rgview.1 rgvim.1 rlogin.1 rm.1	 \
 	rmdir.1 rvi.1 rview.1 rvim.1 sed.1 sha1sum.1 sha224sum.1 sha256sum.1 sha384sum.1  \
 	scp.1 setleds.1 setmetamode.1	\
@@ -45,7 +45,7 @@ MANPAGES = [.1 ab.1 ac.1 access.1 ali.1 apm.1 ar.1	 \
 	systemd-tty-ask-password-agent.1 systemd.1 timedatectl.1 \
     tac.1 tail.1 tar.1 tclsh.1 tee.1	 \
 	test.1 testparm.1 testprns.1 tex.1 texi2dvi.1 texindex.1 	 \
-	timeout.1 touch.1 troff.1 true.1 truncate.1 tsort.1 tty.1 type.1	\
+	timeout.1 touch.1 troff.1 true.1 truncate.1 tsort.1 tty.1 	\
 	uname.1 unexpand.1 unicode_start.1 unicode_stop.1 uniq.1	 \
 	unlink.1 unsq.1 uptime.1 usleep.1 users.1 uuencode.1 vacuumdb.1 vi.1	 \
 	view.1 vim.1 vimtutor.1 virtex.1 vt-is-UTF8.1 w.1 wall.1	 \
