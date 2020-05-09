@@ -20,7 +20,8 @@
 ### 授权
 
 本项目延续历史上的授权，使用 GFDL-1.2+ 发布，且为了符合
-DFSG（DFSG-Compatible）而不包含不可变章节。
+DFSG（DFSG-Compatible）而不包含不可变章节。个别手册页受限于
+上游源文件可能以其它许可证发布（如 GPL）。
 
 ```
 Permission is granted to copy, distribute and/or modify this document
@@ -28,11 +29,17 @@ under the terms of the GNU Free Documentation License, Version 1.2
 or any later version published by the Free Software Foundation;
 with no Invariant Sections, no Front-Cover Texts, and no Back-Cover
 Texts.
+
+However, some translated manual pages maybe released under different
+licenses since they are derivative works of original (English) manual
+pages, especially GPL-licensed documents. Please refer to the header
+information in each file for its exact license.
 ```
 
 向本项目提交补丁则代表您同意按照上述许可证发布您的修改与贡献。
 
-请查看 COPYING 文件了解具体条款。
+请查看 COPYING 文件了解具体条款。`COPYRIGHT`
+文件以机器可读的方式记录了文件的版权信息。
 
 #### 历史文档的签名问题
 
