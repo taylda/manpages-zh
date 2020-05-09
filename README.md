@@ -22,7 +22,17 @@
 本项目延续历史上的授权，使用 GFDL-1.2+ 发布，且为了符合
 DFSG（DFSG-Compatible）而不包含不可变章节。
 
-请查看 COPYING 文件了解具体授权内容。
+```
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.2
+or any later version published by the Free Software Foundation;
+with no Invariant Sections, no Front-Cover Texts, and no Back-Cover
+Texts.
+```
+
+向本项目提交补丁则代表您同意按照上述许可证发布您的修改与贡献。
+
+请查看 COPYING 文件了解具体条款。
 
 #### 历史文档的签名问题
 
@@ -88,7 +98,7 @@ dnf install man-pages-zh-CN
 据用户反馈，macos 上默认无法正常显示中文字符，需要进行调整。请参考 [issue #3](https://github.com/man-pages-zh/manpages-zh/issues/3) 了解某些用户的测试情况。
 
 
-为了确保您的阅览体验最佳，请保证您系统上的 groff 为最新版本（1.22.3，可能的话请使用尚未发布的 1.22.4）。
+为了确保您的阅览体验最佳，请保证您系统上的 groff 为最新版本（1.22.4）。
 旧版 groff 可能对中文没有良好支持。
 
 您还可以在线阅读手册页内容：[点我前往](https://manpages.debian.org/unstable/manpages-zh/index.html)（在线渲染由 Debian 提供）
