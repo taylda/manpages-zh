@@ -4,8 +4,12 @@ Source: https://github.com/man-pages-zh/manpages-zh
 
 Files: *
 Copyright:
- 2015-2020 Boyuan Yang <byang@debian.org>
+ 2005, Carlos Z.F. Liu <carlosliu@users.sourceforge.net>
+ 2008, LI Daobing <lidaobing@gmail.com>
+ 2008, Ji ZhengYu <zhengyuji@gmail.com>
+ 2000-2004, CMPP Project <http://cmpp.linuxforum.net>
  2015-2017 Darcy Shen <sadhen@zoho.com>
+ 2015-2020 Boyuan Yang <byang@debian.org>
 License: GFDL-1.2+
 
 Files: utils/*
