@@ -1,3 +1,12 @@
+2020-05-09  Boyuan Yang <073plan@gmail.com>
+
+	* Import translation for coreutils 8.32:
+	  Add basenc(1), chcon(1), nl(1), nproc(1),
+	  shuf(1), stdbuf(1).
+	* Add COPYRIGHT file for per-file license info.
+	* Add utils/gen-manpage-listfile script to automatically
+	  generate src/man*/manpages file.
+
 2018-05-18  Boyuan Yang <073plan@gmail.com>
 
 	* Remove man page stub for bash builtins.
