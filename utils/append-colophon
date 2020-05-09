@@ -2,6 +2,9 @@
 
 """append-colophon -- automatically append colophon(“跋”) when making
 
+Copyright (c) 2016-2020 Boyuan Yang <byang@debian.org>
+This file is released into the public domain.
+
 * Require UTF-8 input and output.
 """
 
