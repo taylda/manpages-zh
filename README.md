@@ -247,3 +247,4 @@ http://github.com/lidaobing/manpages-zh/tree/master
 * https://manned.org/
 * http://manpages.ubuntu.com/
 * https://manpages.debian.org/
+* https://manpages-l10n-team.pages.debian.net/manpages-l10n/
